@@ -12,7 +12,7 @@ class File extends Model {
           type: Sequelize.VIRTUAL,
 
           get() {
-            return 'http://localhost:8081/files/' ; // arrumar
+            return `http://localhost:8081/files/${this.path}` ; // arrumar
           },
         },
       },

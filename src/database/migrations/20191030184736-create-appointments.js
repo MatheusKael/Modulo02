@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('appointment', {
+    return queryInterface.createTable('appointments', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true,
 
       },
-      data: {
+      date: {
         allowNull: false,
         type: Sequelize.DATE,
       },
@@ -23,7 +23,7 @@ module.exports = {
       },
       provider_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'files', key: 'id'},
+        references: { model: 'users', key: 'id'},
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true
@@ -44,7 +44,7 @@ module.exports = {
 
   down: (queryInterface) => {
 
-    return queryInterface.dropTable('appointment');
+    return queryInterface.dropTable('appointments');
   },
 };
 
